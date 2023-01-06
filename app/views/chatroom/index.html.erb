@@ -1,4 +1,52 @@
-<i class="fa-brands fa-font-awesome"></i>
-<i class="fa-solid fa-user-secret"></i>
-<i class="fa-regular fa-bell"></i>
-<P>JJJJ</P>
+<div class="p-5 text-center bg-light">
+  <i class="fa-solid fa-mug-hot " style="font-size: 30px; color:brown;"></i>
+  <h4 class="mb-3">Say Something</h4>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8 ">
+      <div class="card">
+        <div class="card-header bg-black text-white">
+          Chat
+        </div>
+        <div class="card-body">
+          <div class="h-100 d-flex flex-column">
+            <div class="border-bottom p-3">
+              <h5>Messages</h5>
+            </div>
+            <div class="flex-grow-1 overflow-auto p-3">
+              <%= render @messages%>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          
+            <%=form_for(@message,url: message_path, data: { turbo: "false" }) do |f|%>
+              <div class="input-group mb-3">
+                <%= f.text_field :body, class: 'form-control' %>
+                <div class="input-group-append">
+                  <%= f.submit 'Send <i class="fas fa-envelope"></i>'.html_safe , class: " btn btn-outline-info" ,style:"color: brown;" %> 
+                </div>
+               
+              <%end%>
+         
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="col-4 ">
+        <div class="card">
+          <div class="card-header bg-black text-white" style="color: brown;">
+            Online Users
+          </div>
+          <div class="card-body">
+            <div class="nav flex-column nav-pills bg-black  p-2 rounded-3 m-1">
+              <a class="nav-link " href="#home"> <i class="fas fa-home"></i> Home</a>
+              <a class="nav-link " href="#messages"> <i class="fas fa-envelope"></i> Messages</a>
+              <a class="nav-link" href="#friends"><i class="fas fa-user"></i> Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </div>

@@ -1,3 +1,30 @@
-<h1>Sessions#new</h1>
-
-<p class="lead">Find me in app/views/sessions/new.html.erb</p>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="p-5 text-center bg-light justify-content-center align-items-center">
+      <i class="fa-solid fa-mug-hot " style="font-size: 30px; color:brown;"></i>
+      <h4 class="mb-3">Login to continue</h4>
+    </div>
+    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center  bg-light p-5 card">
+      <%=form_with(scope: :session,url: login_path, data: { turbo: "false" }) do |f|%>
+        <div class="form-group text-center">
+          <%= f.label :username %>
+          <%= f.text_field :username, class: 'form-control' %>
+        </div>
+        <div class="form-group text-center mb-1">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+        <%= f.submit "Log in", class: " mt-2 btn btn-primary" %>
+      <%end%>
+    </div>
+    <div class="col-md-1 d-flex flex-column justify-content-center align-items-center">
+      <i class="fas fa-comments fa-2x"></i>
+    </div>
+    <div class="col-md-5 d-flex flex-column justify-content-center align-items-center bg-light card p-5">
+      <h2>Don't have an account?</h2>
+      <p>Sign up to start chatting with your friends!</p>
+      <a href="#" class="btn btn-secondary">Sign up</a>
+    </div>
+  </div>
+</div>
+</div>

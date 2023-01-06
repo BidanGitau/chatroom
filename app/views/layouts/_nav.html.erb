@@ -1,46 +1,44 @@
 <nav class="navbar navbar-expand-lg bg-black">
-    <div class="container-fluid">
-        <a class="navbar-brand fw-bold text-uppercase " href="#">ChatRoom</a>
-        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+  <div class="container-fluid">
+    <%= link_to "ChatRoom" , root_path ,class:"navbar-brand fw-bold text-uppercase "%>
+    <button class=" navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse fw-semibold" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Imessage</a>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse fw-semibold" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Imessage</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Messages</a>
+        </li>
+      </ul>
+      <div class=" d-flex nav-sign me-4 ">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 mb-2">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+              Account
+            </a>
+            <ul class="dropdown-menu bg-light   ">
+              <%if logged_in? %>
+                <li>
+                  <%= button_to "Logout" , logout_path , method: :delete,class:"btn border-0"%>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Messages</a>
+              <%else%>
+                <li>
+                  <%= link_to "Login" , login_path ,class:"dropdown-item "%>
                 </li>
-
-
+              <%end%>
             </ul>
-
-            <div class=" d-flex nav-sign me-4 ">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mb-2">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Account
-                        </a>
-                        <ul class="dropdown-menu bg-light   ">
-                            <li><a class="dropdown-item " href="#">Logout</li>
-                            <li><a class="dropdown-item  " href="#">Login</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item " href="#">Signup</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="d-flex ms-2 " role="search">
-
-                    <button class="btn btn-outline-secondary" type="submit">LogIn</button>
-                </form>
-            </div>
-
-        </div>
+          </li>
+        </ul>
+        <%if !logged_in?%>
+          <%= link_to "Login" , login_path ,class:"btn btn-outline-info  "%>
+        <%end%>
+      </div>
     </div>
+  </div>
 </nav>
