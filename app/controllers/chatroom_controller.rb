@@ -5,12 +5,4 @@ class ChatroomController < ApplicationController
     @messages=Message.all
   end
 
-  def new
-  end
-
-  def edit
-  end
-
-  def update
-  end
 end
